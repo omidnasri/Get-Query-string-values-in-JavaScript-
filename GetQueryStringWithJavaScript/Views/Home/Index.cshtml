@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@section scripts{
+    <script>
+        (function () {
+            // we can call getQueryStringByName from anywhere we want
+            var result = getQueryStringByName('language');
+            alert(result);
+        })();
+
+        function getQueryStringByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>
+}
+
